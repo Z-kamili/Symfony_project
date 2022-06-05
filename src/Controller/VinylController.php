@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-use Symfony\Component\BrowserKit\Response;
-use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class VinylController 
@@ -11,6 +10,16 @@ class VinylController
     #[Route('/')]
     public function homepage() 
     {
-        return new HttpFoundationResponse('Title: PB and Jams');
+        return new Response('Title: PB and Jams');
+    }
+
+    /**
+     * Wildcard route
+     */
+    #[Route('/browse/{slug}')]
+    public function browse(string $slug) : Response 
+    {
+        $title = str_replace('-',' ',$slug);
+        return new Response('Genre: '.$title);
     }
 }
