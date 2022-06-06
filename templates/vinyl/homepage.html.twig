@@ -1,8 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Create a new Record | {{parent()}} {% endblock %}
+
+
+{% block body %}
 <h1>
       {{title}}
 </h1>
+
+
+
 <div>
 
-    Our schweet track list : TODO 
+   Tracks : 
+
+   <ul>
+   
+   {% for track in tracks %}
+          
+          <li> 
+          
+             {{track|e}}
+
+          </li>
+
+    {% endfor %}
+
+    {# comment #}
+
+   </ul>
 
 </div>
+
+{% endblock %}
