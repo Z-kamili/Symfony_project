@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VinylController extends AbstractController
 {
+
     #[Route('/')]
     public function homepage() 
     {
@@ -20,12 +21,16 @@ class VinylController extends AbstractController
             'Fantasy - Mariah Carey',
         ];
 
+        
+
         return $this->render('vinyl/homepage.html.twig',[
-            'title' => 'PB & Jams',
+            'title' => 'PB & cool',
             'tracks' =>  $tracks
         ]);
     }
 
+
+    
     /**
      * Wildcard route
      */
