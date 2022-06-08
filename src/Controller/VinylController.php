@@ -14,11 +14,12 @@ class VinylController extends AbstractController
     {
 
         $tracks = [
-            'Gangsta Paradise - Coolio',
-            'Waterfalls -TLC',
-            'Creep - Radiohead',
-            'Kiss from a Rose - Seal',
-            'Fantasy - Mariah Carey',
+            ['song' => 'Gangsta\'s Paradise', 'artist' => 'Coolio'],
+            ['song' => 'Waterfalls', 'artist' => 'TLC'],
+            ['song' => 'Creep', 'artist' => 'Radiohead'],
+            ['song' => 'Kiss from a Rose', 'artist' => 'Seal'],
+            ['song' => 'On Bended Knee', 'artist' => 'Boyz II Men'],
+            ['song' => 'Fantasy', 'artist' => 'Mariah Carey'],
         ];
 
         
@@ -27,6 +28,8 @@ class VinylController extends AbstractController
             'title' => 'PB & cool',
             'tracks' =>  $tracks
         ]);
+
+        
     }
 
 
@@ -34,9 +37,18 @@ class VinylController extends AbstractController
     /**
      * Wildcard route
      */
-    #[Route('/browse/{slug}')]
-    public function browse() : Response 
+    #[Route('/browse/{slug}',name: 'app_browser')]
+    public function browse(string $slug = null) : Response 
     {
+
+        $genre = $slug ? str_replace('-',' ',$slug) : null;
+
+        return $this->render('vinly/browse.html.twig',[
+
+            'genre' => $genre
+
+        ]);
+
 
         return new Response('hello');
 
