@@ -44,7 +44,7 @@ class VinylController extends AbstractController
 
         // return $this->render('vinly/secondpage.html.twig');
 
-        return $this->render('browse.html.twig',[
+        return $this->render('vinyl/browse.html.twig',[
 
             'genre' => $genre
 
