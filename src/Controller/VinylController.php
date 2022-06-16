@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VinylController extends AbstractController
 {
 
-    #[Route('/')]
+    #[Route('/',name:'app_homepage')]
     public function homepage() 
     {
 
@@ -34,11 +34,8 @@ class VinylController extends AbstractController
 
 
     
-    /**
-     * Wildcard route
-     */
-    #[Route('/browse/{slug}')]
-    public function browse($slug) : Response 
+    #[Route('/browse/{slug}', name: 'app_browse')]
+    public function browse(string $slug = null) : Response 
     {
         $genre = $slug ? str_replace('-',' ',$slug) : null;
 
