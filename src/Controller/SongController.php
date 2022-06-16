@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use PhpParser\Builder\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +12,7 @@ class SongController extends AbstractController
 {
 
 
-       #[Route('/api/songs/{id}')]
+       #[Route('/api/songs/{id<\d+>}', methods:['GET'])]
        public function getSongs($id) : Response
        {
 
