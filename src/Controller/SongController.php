@@ -25,7 +25,7 @@ class SongController extends AbstractController
 
            ];
 
-           $logger->info('Returning API response for song {song}',[
+           $looger->info('Returning API response for song {song}',[
 
             'song' => $id,
 
